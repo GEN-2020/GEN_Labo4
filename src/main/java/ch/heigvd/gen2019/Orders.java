@@ -24,13 +24,6 @@ public class Orders {
 
         for (Order order : orders) {
             sb.append(order.toString());
-
-            if (order.getProductsCount() > 0) {
-                sb.delete(sb.length() - 2, sb.length());
-            }
-
-            sb.append("]");
-            sb.append("}, ");
         }
 
         if (this.getOrdersCount() > 0) {
