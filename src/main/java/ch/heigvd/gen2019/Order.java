@@ -26,4 +26,19 @@ public class Order {
     public void AddProduct(Product product) {
         products.add(product);
     }
+
+    @Override
+    public String toString() {
+        StringBuffer sb = new StringBuffer("{\"id\": " + id + ", ");
+
+        sb.append("\"products\": [");
+        for (Product product : products) {
+            sb.append(product);
+        }
+
+        if (this.getProductsCount() > 0) {
+            sb.delete(sb.length() - 2, sb.length());
+        }
+        return sb.append("]}, ").toString();
+    }
 }
