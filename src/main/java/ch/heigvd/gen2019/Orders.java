@@ -22,8 +22,7 @@ public class Orders {
     public String toString() {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
-        for (int i = 0; i < this.getOrdersCount(); i++) {
-            Order order = this.getOrder(i);
+        for (Order order : orders) {
             sb.append(order.toString());
 
             if (order.getProductsCount() > 0) {
