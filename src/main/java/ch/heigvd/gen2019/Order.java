@@ -35,8 +35,8 @@ public class Order {
         sb.append(id);
         sb.append(", ");
         sb.append("\"products\": [");
-        for (int j = 0; j < this.getProductsCount(); j++) {
-            sb.append(this.getProduct(j));
+        for (Product product : products) {
+            sb.append(product);
         }
         return sb.toString();
     }
