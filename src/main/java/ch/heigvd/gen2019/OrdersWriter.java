@@ -12,7 +12,7 @@ public class OrdersWriter {
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
             Order order = orders.getOrder(i);
-            getOrderContents(sb, order);
+            sb.append(order.toString());
 
             if (order.getProductsCount() > 0) {
                 sb.delete(sb.length() - 2, sb.length());
@@ -27,10 +27,6 @@ public class OrdersWriter {
         }
 
         return sb.append("]}").toString();
-    }
-
-    private void getOrderContents(StringBuffer sb, Order order) {
-        sb.append(order.toString());
     }
 
     private String getSizeFor(Product product) {
