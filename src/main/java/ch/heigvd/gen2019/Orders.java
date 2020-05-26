@@ -29,7 +29,6 @@ public class Orders {
         if (this.getOrdersCount() > 0) {
             sb.delete(sb.length() - 2, sb.length());
         }
-
         return sb.append("]}").toString();
     }
 }

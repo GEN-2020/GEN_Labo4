@@ -29,11 +29,7 @@ public class Order {
 
     @Override
     public String toString() {
-        StringBuffer sb = new StringBuffer();
-        sb.append("{");
-        sb.append("\"id\": ");
-        sb.append(id);
-        sb.append(", ");
+        StringBuffer sb = new StringBuffer("{\"id\": " + id + ", ");
 
         sb.append("\"products\": [");
         for (Product product : products) {
@@ -43,9 +39,6 @@ public class Order {
         if (this.getProductsCount() > 0) {
             sb.delete(sb.length() - 2, sb.length());
         }
-        sb.append("]");
-        sb.append("}, ");
-
-        return sb.toString();
+        return sb.append("]}, ").toString();
     }
 }

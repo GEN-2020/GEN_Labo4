@@ -49,22 +49,17 @@ public class Product {
 
     @Override
     public String toString(){
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder("{");
 
-        sb.append("{");
         sb.append(propertyString("code", getCode(), true));
         sb.append(propertyString("color", color.toString(), true));
-
         if (size != Size.NO_SIZE) {
             sb.append(propertyString("size", size.toString(), true));
         }
-
         sb.append(propertyString("price", Double.toString(getPrice()), false));
         sb.append(propertyString("currency", getCurrency(), true));
 
         sb.delete(sb.length() - 3, sb.length());
-        sb.append("\"}, ");
-
-        return sb.toString();
+        return sb.append("\"}, ").toString();
     }
 }
