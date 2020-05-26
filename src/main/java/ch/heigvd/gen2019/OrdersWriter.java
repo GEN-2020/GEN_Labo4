@@ -12,7 +12,7 @@ public class OrdersWriter {
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
             Order order = orders.getOrder(i);
-            getProductContents(sb, order);
+            getOrderContents(sb, order);
 
             if (order.getProductsCount() > 0) {
                 sb.delete(sb.length() - 2, sb.length());
@@ -29,7 +29,7 @@ public class OrdersWriter {
         return sb.append("]}").toString();
     }
 
-    private void getProductContents(StringBuffer sb, Order order) {
+    private void getOrderContents(StringBuffer sb, Order order) {
         sb.append("{");
         sb.append("\"id\": ");
         sb.append(order.getOrderId());
