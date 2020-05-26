@@ -35,29 +35,34 @@ public class Product {
         return currency;
     }
 
+    private String propertyString(String propertyName, String propertyValue, boolean inQuotes){
+        StringBuffer sb = new StringBuffer();
+        sb.append("\"");
+        sb.append(propertyName);
+        sb.append("\": ");
+        if(inQuotes) sb.append("\"");
+        sb.append(propertyValue);
+        if(inQuotes) sb.append("\"");
+        sb.append(", ");
+        return sb.toString();
+    }
+
     @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
 
         sb.append("{");
-        sb.append("\"code\": \"");
-        sb.append(code);
-        sb.append("\", ");
-        sb.append("\"color\": \"");
-        sb.append(color);
-        sb.append("\", ");
+        sb.append(propertyString("code", getCode(), true));
+        sb.append(propertyString("color", color.toString(), true));
 
         if (size != Size.NO_SIZE) {
-            sb.append("\"size\": \"");
-            sb.append(size);
-            sb.append("\", ");
+            sb.append(propertyString("size", size.toString(), true));
         }
 
-        sb.append("\"price\": ");
-        sb.append(price);
-        sb.append(", ");
-        sb.append("\"currency\": \"");
-        sb.append(currency);
+        sb.append(propertyString("price", Double.toString(getPrice()), false));
+        sb.append(propertyString("currency", getCurrency(), true));
+
+        sb.delete(sb.length() - 3, sb.length());
         sb.append("\"}, ");
 
         return sb.toString();
