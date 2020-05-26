@@ -36,12 +36,8 @@ public class OrdersWriter {
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
-            getProductContents(sb, order.getProduct(j));
+            sb.append(order.getProduct(j).toString());
         }
-    }
-
-    private void getProductContents(StringBuffer sb, Product product) {
-        sb.append(product.toString());
     }
 
     private String getSizeFor(Product product) {
